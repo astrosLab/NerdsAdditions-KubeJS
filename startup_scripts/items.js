@@ -20,6 +20,13 @@ StartupEvents.registry('item', event => {
         .unstackable();
 })
 
+StartupEvents.registry('fluid', event => {
+    event.create('pilk')
+        .displayName('Pilk')
+        .thinTexture(0xD7B9A4)
+        .bucketColor(0xD7B9A4);
+})
+
 /*StartupEvents.modifyCreativeTab('kubejs:tab', event =>{
     // Hide Incomplete Ender Eye
     event.remove('kubejs:incomplete_ender_eye');
