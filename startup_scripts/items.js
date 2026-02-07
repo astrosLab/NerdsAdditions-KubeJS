@@ -16,7 +16,6 @@ StartupEvents.registry('item', event => {
     // Dry Sack of Sating
     event.create('dry_sack_of_sating', 'basic')
         .displayName('Dry Sack of Sating')
-        .tooltip('Feed him Pilk and Brain Damage Jelly Beans')
         .texture('nerds_addons:item/dry_sack_of_sating')
         .unstackable();
 })
