@@ -214,7 +214,7 @@ ServerEvents.recipes(event => {
     // Replace AC Sack of Sating
     // with SUPERHEAT MIX Bundle + Sundae + Sweet Teeth + Each Gelatin
     // + Radiant Essence + White Chocolate
-    // + Ruby Chocolate -> 25% Sack of Sating OR Rotten Flesh + Honey
+    // + Ruby Chocolate -> Dry Sack of Sating
     event.remove({output: 'alexscaves:sack_of_sating'});
 
     event.recipes.create.mixing(
@@ -235,4 +235,32 @@ ServerEvents.recipes(event => {
             Fluid.of('create_confectionery:ruby_chocolate', 1000),
         ]
     ).superheated();
+
+    // Dry Sack of Sating FILL 50B (50000mB) Pilk DEPLOY Jelly Bean
+    // -> 25% Sack of Sating, 37% Rotten Flesh Block, 37% Honey Bucket
+    const dry_sack = 'kubejs:incomplete_sack_of_sating';
+    event.recipes.create.sequenced_assembly(
+        [
+            Item.of('alexscaves:sack_of_sating').withChance(0.25),
+            Item.of('caverns_and_chasms:rotten_flesh_block').withChance(0.37),
+            Item.of('create:honey_bucket').withChance(0.37)
+        ],
+        'kubejs:dry_sack_of_sating',
+        [
+            event.recipes.create.filling(dry_sack, [dry_sack, Fluid.of('kubejs:pilk', 1000)]),
+            event.recipes.create.filling(dry_sack, [dry_sack, Fluid.of('kubejs:pilk', 1000)]),
+            event.recipes.create.filling(dry_sack, [dry_sack, Fluid.of('kubejs:pilk', 1000)]),
+            event.recipes.create.filling(dry_sack, [dry_sack, Fluid.of('kubejs:pilk', 1000)]),
+            event.recipes.create.filling(dry_sack, [dry_sack, Fluid.of('kubejs:pilk', 1000)]),
+            event.recipes.create.deploying(
+                dry_sack,
+                [
+                    dry_sack, 
+                    'alexscaves:jelly_bean'
+                ]
+            ),
+        ]
+    )
+    .transitionalItem(dry_sack)
+    .loops(10)
 });

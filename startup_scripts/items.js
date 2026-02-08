@@ -18,6 +18,12 @@ StartupEvents.registry('item', event => {
         .displayName('Dry Sack of Sating')
         .texture('nerds_addons:item/dry_sack_of_sating')
         .unstackable();
+    
+    // Incomplete Sack of Sating
+    event.create('incomplete_sack_of_sating', 'create:sequenced_assembly')
+        .displayName('Incomplete Sack of Sating')
+        .texture('nerds_addons:item/dry_sack_of_sating')
+        .unstackable();
 })
 
 StartupEvents.registry('fluid', event => {
