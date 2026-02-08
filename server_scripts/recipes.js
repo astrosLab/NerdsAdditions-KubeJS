@@ -281,4 +281,13 @@ ServerEvents.recipes(event => {
             Fluid.of('alexscaves:purple_soda', 500)
         ]
     ).processingTime(500);
+
+    // Pilk Bottle filling
+    event.recipes.create.filling(
+        'kubejs:pilk_bottle',
+        [
+            'minecraft:glass_bottle',
+            Fluid.of('kubejs:pilk', 200)
+        ]
+    );
 });
