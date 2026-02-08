@@ -299,4 +299,20 @@ ServerEvents.recipes(event => {
         ],
         'alexscaves:giant_sweetberry'
     ).hammerBlows(1);
+
+    // All AC Ice Cream SUPERHEAT PRESSED -> Milk
+    event.recipes.vintage.pressurizing(
+        Fluid.of('minecraft:milk', 25),
+        ['alexscaves:vanilla_ice_cream_scoop']
+    ).processingTime(500);
+
+    event.recipes.vintage.pressurizing(
+        Fluid.of('minecraft:milk', 25),
+        ['alexscaves:chocolate_ice_cream_scoop']
+    ).processingTime(500);
+    
+    event.recipes.vintage.pressurizing(
+        Fluid.of('minecraft:milk', 25),
+        ['alexscaves:sweetberry_ice_cream_scoop']
+    ).processingTime(600);
 });
