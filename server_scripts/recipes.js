@@ -265,7 +265,7 @@ ServerEvents.recipes(event => {
     .loops(10)
 
     // Remove Cured Membrane
-    event.remove({output: "galosphere:cured_membrane"})
+    event.remove({output: 'galosphere:cured_membrane'})
 
     // VACUUMIZE Milk + Sugar + Caramel Bar + Red Phosphorus + Quartz
     // + Licoroot + Purple Soda -> Pilk
@@ -315,4 +315,24 @@ ServerEvents.recipes(event => {
         Fluid.of('minecraft:milk', 25),
         ['alexscaves:sweetberry_ice_cream_scoop']
     ).processingTime(600);
+
+    // REPLACE Gingerbread Crumbs in AC Confection Oven recipe
+    // with CF Gingerbread Bricks 
+    event.remove({output: 'alexscaves:confection_oven'})
+    
+    event.shaped(
+        'alexscaves:confection_oven',
+        [
+            'GEG',
+            'CSC',
+            'GRG'
+        ],
+        {
+            'G': 'create_confectionery:gingerbreak_bricks',
+            'E': 'alexscaves:radiant_essence',
+            'C': 'alexscaves:candy_cane',
+            'S': 'minecraft:smoker',
+            'R': 'minecraft:redstone'
+        }
+    );
 });
