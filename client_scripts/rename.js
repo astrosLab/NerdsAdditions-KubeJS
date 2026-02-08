@@ -47,13 +47,3 @@ ClientEvents.lang("en_us", event => {
     event.renameItem('darkerdepths:rope', 'String Rope');
     event.renameItem('farmersdelight:rope', 'Straw Rope');
 });
-
-ItemEvents.tooltip(event => {    
-    event.addAdvanced('kubejs:dry_sack_of_sating', (item, advanced, text) => {
-        text.add(
-            1,
-            Text.red('Feed him Pilk & Brain Damage Jelly Beans.')
-                .bold(true)
-        );
-    });
-});
