@@ -263,4 +263,7 @@ ServerEvents.recipes(event => {
     )
     .transitionalItem(dry_sack)
     .loops(10)
+
+    // Remove Cured Membrane
+    event.remove({output: "galosphere:cured_membrane"})
 });
