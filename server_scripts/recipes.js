@@ -335,4 +335,14 @@ ServerEvents.recipes(event => {
             'R': 'minecraft:redstone'
         }
     );
+
+    // AC Dough Block HEATED MIX Cinder Flour + Sugar -> Ginger Dough
+    event.recipes.create.mixing(
+        Item.of('create_confectionery:gingerdough', 3),
+        [
+            'alexscaves:dough_block',
+            Item.of('create:cinder_flour', 2),
+            'minecraft:sugar'
+        ]
+    ).heated();
 });
