@@ -266,4 +266,19 @@ ServerEvents.recipes(event => {
 
     // Remove Cured Membrane
     event.remove({output: "galosphere:cured_membrane"})
+
+    // VACUUMIZE Milk + Sugar + Caramel Bar + Red Phosphorus + Quartz
+    // + Licoroot + Purple Soda -> Pilk
+    event.recipes.vintage.vacuumizing(
+        Fluid.of('kubejs:pilk', 1000),
+        [
+            Fluid.of('minecraft:milk', 1000),
+            Item.of('minecraft:sugar', 10),
+            'create_confectionery:bar_of_caramel',
+            Item.of('createbb:red_phosphorus', 10),
+            Item.of('minecraft:quartz', 10),
+            Item.of('alexscaves:licoroot', 10),
+            Fluid.of('alexscaves:purple_soda', 500)
+        ]
+    ).processingTime(500);
 });
