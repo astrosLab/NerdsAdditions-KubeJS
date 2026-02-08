@@ -290,4 +290,13 @@ ServerEvents.recipes(event => {
             Fluid.of('kubejs:pilk', 200)
         ]
     );
+
+    // AC Giant Sweetberry HAMMER -> 50% sugar, 3% Sweet Berry
+    event.recipes.vintage.hammering(
+        [
+            Item.of('minecraft:sugar', 1).withChance(0.5),
+            Item.of('minecraft:sweet_berries', 1).withChance(0.03)
+        ],
+        'alexscaves:giant_sweetberry'
+    ).hammerBlows(1);
 });
