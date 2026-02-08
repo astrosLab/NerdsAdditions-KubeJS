@@ -1,5 +1,5 @@
 StartupEvents.registry('item', event => {
-    Platform.mods.kubejs.name = 'Nerds Placeholder';
+    Platform.mods.kubejs.name = 'Nerds Descent';
 
     // Incomplete Ender Eye (Stage 1: Deploy Blaze Powder)
     event.create('incomplete_ender_eye_fire', 'basic')
@@ -37,12 +37,10 @@ StartupEvents.registry('item', event => {
                 .hunger(3)
                 .saturation(5)
                 .alwaysEdible()
-                .eaten(context => {
-                    context.item.shrink(1)
-                    context.player.give('minecraft:glass_bottle')
+                .eaten(ctx => {
+                    ctx.item.shrink(1)
+                    ctx.player.give('minecraft:glass_bottle')
                 })
-                .effect('farmersdelight:comfort', 30 * 20, 0, 1.0)
-                .effect('minecraft:nausea', 10 * 20, 0, 1.0)
         })
         .maxStackSize(16);
 })
