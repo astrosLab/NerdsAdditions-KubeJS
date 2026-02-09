@@ -43,6 +43,12 @@ StartupEvents.registry('item', event => {
                 })
         })
         .maxStackSize(16);
+
+    // Incomplete Water Wheel
+    event.create('incomplete_large_water_wheel', 'create:sequenced_assembly')
+        .displayName('Incomplete Large Water Wheel')
+        .texture('create:item/large_water_wheel')
+        .unstackable();
 })
 
 StartupEvents.registry('fluid', event => {

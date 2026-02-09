@@ -345,4 +345,33 @@ ServerEvents.recipes(event => {
             'minecraft:sugar'
         ]
     ).heated();
+
+    // REPLACE Large Water Wheel recipe with
+    // Water Wheel DEPLOY minecraft:logs DEPLOY minecraft:wooden_slabs
+    // DEPLOY minecraft:fence_gates
+    event.remove({output: 'create:large_water_wheel'})
+
+    const lww = 'kubejs:incomplete_large_water_wheel';
+    event.recipes.create.sequenced_assembly(
+        [
+            'create:large_water_wheel'
+        ],
+        'create:water_wheel',
+        [
+            event.recipes.create.deploying(
+                lww,
+                [lww, '#minecraft:logs']
+            ),
+            event.recipes.create.deploying(
+                lww,
+                [lww, '#minecraft:wooden_slabs']
+            ),
+            event.recipes.create.deploying(
+                lww,
+                [lww, '#minecraft:fence_gates']
+            ),
+        ]
+    )
+    .transitionalItem(lww)
+    .loops(2)
 });
