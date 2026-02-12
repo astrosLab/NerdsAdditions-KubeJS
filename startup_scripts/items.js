@@ -63,27 +63,48 @@ StartupEvents.registry('item', event => {
         .texture('nerds_addons:item/bc_blazed_pan')
         .unstackable();
     
-    // Bland Blaze Cake Mixture (1 Egg)
-    event.create('bc_egg_mixture_one', 'basic')
-        .displayName('Egg Mixture (1 Egg)')
-        .tooltip('§aNext step: Mix this with 1 egg.')
-        .texture('nerds_addons:item/bc_egg_mixture')
-        .unstackable();
-
     // Bland Blaze Cake Mixture (2 Egg)
-    event.create('bc_egg_mixture_two', 'basic')
+    event.create('bc_egg_mixture_one', 'basic')
         .displayName('Egg Mixture (2 Egg)')
-        .tooltip('§aNext step: Mix this with 1 egg.')
+        .tooltip('§aNext step: Mix this.')
         .texture('nerds_addons:item/bc_egg_mixture')
         .unstackable();
 
     // Bland Blaze Cake Mixture (3 Egg)
-    event.create('bc_egg_mixture_three', 'basic')
+    event.create('bc_egg_mixture_two', 'basic')
         .displayName('Egg Mixture (3 Egg)')
+        .tooltip('§aNext step: Mix this.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+
+    // Bland Blaze Cake Mixture (4 Egg)
+    event.create('bc_egg_mixture_three', 'basic')
+        .displayName('Egg Mixture (4 Egg)')
+        .tooltip('§aNext step: Mix this.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+
+    // Bland Blaze Cake Mixed Mixture (2 Egg)
+    event.create('bc_egg_mixed_mixture_one', 'basic')
+        .displayName('Egg Mixed Mixture (2 Egg)')
+        .tooltip('§aNext step: Mix this with 1 egg.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+
+    // Bland Blaze Cake Mixed Mixture (3 Egg)
+    event.create('bc_egg_mixed_mixture_two', 'basic')
+        .displayName('Egg Mixed Mixture (3 Egg)')
+        .tooltip('§aNext step: Mix this with 1 egg.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+
+    // Bland Blaze Cake Mixed Mixture (4 Egg)
+    event.create('bc_egg_mixed_mixture_three', 'basic')
+        .displayName('Egg Mixed Mixture (4 Egg)')
         .tooltip('§aNext step: Heat mix this with 4 Propelplant Cane.')
         .texture('nerds_addons:item/bc_egg_mixture')
         .unstackable();
-    
+
     // Vanilla Blaze Cake Mixture
     event.create('bc_vanilla_mixture', 'basic')
         .displayName('Vanilla Blaze Cake Mixture')
