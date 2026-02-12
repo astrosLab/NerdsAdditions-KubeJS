@@ -46,4 +46,22 @@ ClientEvents.lang("en_us", event => {
     event.renameItem('supplementaries:rope', 'Flax Rope');
     event.renameItem('darkerdepths:rope', 'String Rope');
     event.renameItem('farmersdelight:rope', 'Straw Rope');
+
+    // Replace Stone Tools with Copper
+    renameGroup(event, {
+        'minecraft:stone_axe': 'Copper Axe',
+        'minecraft:stone_hoe': 'Copper Hoe',
+        'minecraft:stone_pickaxe': 'Copper Pickaxe',
+        'minecraft:stone_shovel': 'Copper Shovel',
+        'minecraft:stone_sword': 'Copper Sword',
+
+        'weapon_class:stone_battle_axe': 'Copper Battle Axe',
+        'weapon_class:stone_dagger': 'Copper Dagger',
+        'weapon_class:stone_executioners_sword': 'Copper Executioners Sword',
+        'weapon_class:stone_hammer': 'Copper Hammer',
+        'weapon_class:stone_katar': 'Copper Katar',
+        'weapon_class:stone_rapier': 'Copper Rapier',
+        'weapon_class:stone_scythe': 'Copper Scythe',
+        'weapon_class:stone_sickle': 'Copper Sickle',
+    });
 });

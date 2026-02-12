@@ -47,7 +47,7 @@ StartupEvents.registry('item', event => {
     // Incomplete Water Wheel
     event.create('incomplete_large_water_wheel', 'create:sequenced_assembly')
         .displayName('Incomplete Large Water Wheel')
-        .texture('create:item/large_water_wheel')
+        .texture('nerds_addons:item/large_water_wheel')
         .unstackable();
 })
 
