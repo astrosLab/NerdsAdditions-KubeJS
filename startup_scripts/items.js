@@ -49,6 +49,81 @@ StartupEvents.registry('item', event => {
         .displayName('Incomplete Large Water Wheel')
         .texture('nerds_addons:item/large_water_wheel')
         .unstackable();
+
+    // Blazed Pan
+    event.create('bc_blazed_pan', 'basic')
+        .displayName('Blazed Pan')
+        .tooltip('§aNext step: Deploy Moist Blaze Cake Dough onto this.')
+        .texture('nerds_addons:item/bc_blazed_pan')
+        .unstackable();
+
+    // Incomplete Blazed Pan
+    event.create('incomplete_bc_blazed_pan', 'create:sequenced_assembly')
+        .displayName('Incomplete Blazed Pan')
+        .texture('nerds_addons:item/bc_blazed_pan')
+        .unstackable();
+    
+    // Bland Blaze Cake Mixture (1 Egg)
+    event.create('bc_egg_mixture_one', 'basic')
+        .displayName('Egg Mixture (1 Egg)')
+        .tooltip('§aNext step: Mix this with 1 egg.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+
+    // Bland Blaze Cake Mixture (2 Egg)
+    event.create('bc_egg_mixture_two', 'basic')
+        .displayName('Egg Mixture (2 Egg)')
+        .tooltip('§aNext step: Mix this with 1 egg.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+
+    // Bland Blaze Cake Mixture (3 Egg)
+    event.create('bc_egg_mixture_three', 'basic')
+        .displayName('Egg Mixture (3 Egg)')
+        .tooltip('§aNext step: Heat mix this with 4 Propelplant Cane.')
+        .texture('nerds_addons:item/bc_egg_mixture')
+        .unstackable();
+    
+    // Vanilla Blaze Cake Mixture
+    event.create('bc_vanilla_mixture', 'basic')
+        .displayName('Vanilla Blaze Cake Mixture')
+        .tooltip('§aNext step: Heat mix this with Blaze Cake Flour.')
+        .texture('nerds_addons:item/bc_vanilla_egg_mixture')
+        .unstackable();
+    
+    // Blaze Cake Flour
+    event.create('bc_cake_flour', 'basic')
+        .displayName('Blaze Cake Flour')
+        .tooltip('§aNext step: Heat mix this with Vanilla Blaze Cake Mixture.')
+        .texture('nerds_addons:item/bc_blaze_cake_flour')
+        .unstackable();
+    
+    // Blaze Cake Dough
+    event.create('bc_blaze_dough', 'basic')
+        .displayName('Blaze Cake Dough')
+        .tooltip('§aNext step: Spout 25mB Milk (x25).')
+        .texture('nerds_addons:item/bc_blaze_dough')
+        .unstackable();
+    
+    // Incomplete Moist Blaze Cake Dough
+    event.create('incomplete_bc_moist_blaze_dough', 'create:sequenced_assembly')
+        .displayName('Incomplete Moist Blaze Cake Dough')
+        .texture('nerds_addons:item/bc_blaze_dough_milked')
+        .unstackable();
+    
+    // Moist Blaze Cake Dough
+    event.create('bc_moist_blaze_dough', 'basic')
+        .displayName('Moist Blaze Cake Dough')
+        .tooltip('§aNext step: Deploy this onto Blazed Pan.')
+        .texture('nerds_addons:item/bc_blaze_dough_milked')
+        .unstackable();
+
+    // Blaze Cake Pan
+    event.create('bc_pan', 'basic')
+        .displayName('Blaze Cake Pan')
+        .tooltip('§aNext step: Heated vacuumize this and 250mB Fire Resistance.')
+        .texture('nerds_addons:item/bc_cakeonpan')
+        .unstackable();
 })
 
 StartupEvents.registry('fluid', event => {

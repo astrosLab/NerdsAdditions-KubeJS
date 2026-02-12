@@ -262,10 +262,10 @@ ServerEvents.recipes(event => {
         ]
     )
     .transitionalItem(dry_sack)
-    .loops(10)
+    .loops(10);
 
     // Remove Cured Membrane
-    event.remove({output: 'galosphere:cured_membrane'})
+    event.remove({output: 'galosphere:cured_membrane'});
 
     // VACUUMIZE Milk + Sugar + Caramel Bar + Red Phosphorus + Quartz
     // + Licoroot + Purple Soda -> Pilk
@@ -318,7 +318,7 @@ ServerEvents.recipes(event => {
 
     // REPLACE Gingerbread Crumbs in AC Confection Oven recipe
     // with CF Gingerbread Bricks 
-    event.remove({output: 'alexscaves:confection_oven'})
+    event.remove({output: 'alexscaves:confection_oven'});
     
     event.shaped(
         'alexscaves:confection_oven',
@@ -349,7 +349,7 @@ ServerEvents.recipes(event => {
     // REPLACE Large Water Wheel recipe with
     // Water Wheel DEPLOY minecraft:logs DEPLOY minecraft:wooden_slabs
     // DEPLOY minecraft:fence_gates
-    event.remove({output: 'create:large_water_wheel'})
+    event.remove({output: 'create:large_water_wheel'});
 
     const lww = 'kubejs:incomplete_large_water_wheel';
     event.recipes.create.sequenced_assembly(
@@ -373,5 +373,95 @@ ServerEvents.recipes(event => {
         ]
     )
     .transitionalItem(lww)
-    .loops(2)
+    .loops(2);
+
+    // Replace Blaze Cake Base recipe with
+    // Tray
+    // 1. Tray DEPLOY Cinder Flour, SPOUT 250mB Fire Resistance -> Blazed Pan
+    //
+    // Mixture
+    // 2. MIX 2 Sugar + Cocoa Butter + forge:eggs -> Bland Blaze Cake Mixture (1 Egg)
+    // 3. MIX forge:eggs -> Bland Blaze Cake Mixture (2 Egg)
+    // 4. MIX forge:eggs -> Bland Blaze Cake Mixture (3 Egg)
+    // 5. MIX 4 Propelplant Cane -> Vanilla Blaze Cake Mixture
+    //
+    // Flour
+    // 6. HEATED MIX Cinder Flour + Gunpowder + Pink Salt Shard -> Blaze Cake Flour (OR USE 10 FIRE LIGHT DUST)
+    // 
+    // Combine (into Dough, Pan, Cake Base)
+    // 7. HEATED MIX Mixture + Flour -> Blaze Cake Dough
+    // 8. Incomplete Blaze Cake Dough FILL 10mB Milk (x25) -> Moist Blaze Cake Dough
+    // 9. Blazed Pan DEPLOY Moist Blaze Cake Dough -> Blaze Cake Pan
+    // 10. HEATED VACUUMIZE Blaze Cake Pan + 250mB Fire Resistance -> 2 Blaze Cake Base + Tray
+    event.remove({output: 'create:blaze_cake_base'});
+ 
+    // 1. Tray DEPLOY Cinder Flour, SPOUT 250mB Fire Resistance -> Blazed Pan
+    const blazed_pan = 'kubejs:incomplete_bc_blazed_pan';
+    event.recipes.create.sequenced_assembly(
+        [
+            'kubejs:bc_blazed_pan',
+        ],
+        'createbb:tray',
+        [
+            event.recipes.create.deploying(
+                blazed_pan,
+                [
+                    blazed_pan, 
+                    'create:cinder_flour'
+                ]
+            ),
+            event.custom({
+                'type': 'create:filling',
+                'results': [
+                    {'item': blazed_pan},
+                ],
+                'ingredients': [
+                    {'item': blazed_pan},
+                    {
+                        'fluid': 'create:potion', 'amount': 250, 
+                        'nbt': {'Potion': 'minecraft:fire_resistance'}
+                    }
+                ]
+            })
+        ]
+    )
+    .transitionalItem(blazed_pan)
+    .loops(1);
+ 
+    // 2. MIX 2 Sugar + Cocoa Butter + forge:egg -> Bland Blaze Cake Mixture (1 Egg)
+    event.recipes.create.mixing(
+        'kubejs:bc_egg_mixture_one',
+        [
+            Item.of('minecraft:sugar', 2),
+            'create_confectionery:cocoa_butter',
+            '#forge:eggs'
+        ]
+    );
+
+    // 3. MIX forge:egg -> Bland Blaze Cake Mixture (2 Egg)
+    event.recipes.create.mixing(
+        'kubejs:bc_egg_mixture_two',
+        [
+            'kubejs:bc_egg_mixture_one',
+            '#forge:eggs'
+        ]
+    );
+
+    // 4. MIX forge:egg -> Bland Blaze Cake Mixture (3 Egg)
+    event.recipes.create.mixing(
+        'kubejs:bc_egg_mixture_three',
+        [
+            'kubejs:bc_egg_mixture_two',
+            '#forge:eggs'
+        ]
+    );
+    
+    // 5. MIX 4 Propelplant Cane -> Vanilla Blaze Cake Mixture
+    event.recipes.create.mixing(
+        'kubejs:bc_vanilla_mixture',
+        [
+            'kubejs:bc_egg_mixture_three',
+            Item.of('nethersdelight:propelplant_cane', 4)
+        ]
+    );
 });
