@@ -573,7 +573,8 @@ ServerEvents.recipes(event => {
             {
                 'item': 'create:blaze_cake_base',
                 'count': '2'
-            }
+            },
+            {'item': 'createbb:tray'}
         ],
         'ingredients': [
             {'item': 'kubejs:bc_pan'},
